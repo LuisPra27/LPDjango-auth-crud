@@ -29,12 +29,12 @@ def signup(request):
             except IntegrityError:
                 return render(request,"signup.html",{
                     "form": UserCreationForm, 
-                    "error": "User already exist"
+                    "error": "Usuario ya existe"
                     })
                 
         return render(request,"signup.html", {
             "form": UserCreationForm, 
-            "error": "Password do not match"
+            "error": "Contraseñas no coinciden"
             })
 
 @login_required
@@ -85,7 +85,7 @@ def task_detail(request, task_id):
             return render(request,'task_detail.html',{
                 'task':task,
                 'form': form,
-                'error':'Error updating tasks'
+                'error':'Error al actualizar Tarea'
             })
 
 @login_required
@@ -119,7 +119,7 @@ def signin(request):
         if user is None:
             return render(request, 'signin.html',{
                 'form':AuthenticationForm,
-                'error':'Username or password is incorrect'
+                'error':'Usuario o Contraseña Incorrectos'
             })
         else:
             login(request, user)
